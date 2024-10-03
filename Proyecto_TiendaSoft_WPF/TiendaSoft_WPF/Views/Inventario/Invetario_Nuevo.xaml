@@ -45,44 +45,44 @@
             <Label Content="Descripcion: "  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Cantidad: "     Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Familia: "      Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            <Label Content="Ubicacion: "    Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            <Label Content="Anaquel: "      Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            <!--
             <Label Content="Marca: "        Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Tipo: "         Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Modelo: "       Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="a"              Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left"  FontSize="13" FontWeight="Normal" VerticalAlignment="Center" Margin="120,0,0,2"/>
             <Label Content="Placa: "        Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
-            <Label Content="Ubicacion: "    Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
-            <Label Content="Anaquel: "      Grid.Row="10" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Aseguradora: "  Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
-
+            -->
             
             <TextBox    x:Name="tb_Codigo"        Grid.Row="0" Grid.Column="1" Margin="20,4,4,4" Width="340" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper"/>
             <TextBox    x:Name="tb_numPieza"      Grid.Row="1" Grid.Column="1" Margin="20,4,4,4" Width="340" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="25"/>
             <TextBox    x:Name="tB_descripcion"   Grid.Row="2" Grid.Column="1" Margin="20,4,4,4" Width="340" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper"/>
             <TextBox    x:Name="tb_Cantidad"      Grid.Row="3" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" Text="1"/>
             <ComboBox   x:Name="cb_Familia"       Grid.Row="4" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
+            <ComboBox   x:Name="cb_Ubicacion"     Grid.Row="5" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
+            <TextBox    x:Name="tb_anaquel"       Grid.Row="6" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="30" />
+            <!--
             <ComboBox   x:Name="cb_Marca"         Grid.Row="5" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
             <ComboBox   x:Name="cb_Tipo"          Grid.Row="6" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
-            
             <TextBox    x:Name="tb_modelo"        Grid.Row="7" Grid.Column="1" Margin="20,4,4,4" Width="100" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" Text=""/>
             <TextBox    x:Name="tb_modelo2"       Grid.Row="7" Grid.Column="1" Margin="140,4,4,4" Width="100" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" Text=""/>
-
             <TextBox    x:Name="tb_placa"         Grid.Row="8" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="30"/>
-            <ComboBox   x:Name="cb_Ubicacion"     Grid.Row="9" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
-            <TextBox    x:Name="tb_anaquel"       Grid.Row="10" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="30" />
             <ComboBox   x:Name="cb_aseguradora"   Grid.Row="11" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
-
+            -->
             <Button x:Name="btn_nFamilias"  Grid.Row="4" Grid.Column="1" Width="22" HorizontalAlignment="Left" Background="#00000000" BorderBrush="#00000000" Margin="250,0,0,0">
                 <Image Source="{dx:DXImage Image=Add_32x32.png}" />
             </Button>
             <Button x:Name="btn_nMarca"  Grid.Row="5" Grid.Column="1" Width="22" HorizontalAlignment="Left" Background="#00000000" BorderBrush="#00000000" Margin="250,0,0,0">
                 <Image Source="{dx:DXImage Image=Add_32x32.png}" />
             </Button>
-            <Button x:Name="btn_nUbic"  Grid.Row="9" Grid.Column="1" Width="22" HorizontalAlignment="Left" Background="#00000000" BorderBrush="#00000000" Margin="250,0,0,0">
+            <!--<Button x:Name="btn_nUbic"  Grid.Row="9" Grid.Column="1" Width="22" HorizontalAlignment="Left" Background="#00000000" BorderBrush="#00000000" Margin="250,0,0,0">
                 <Image Source="{dx:DXImage Image=Add_32x32.png}" />
             </Button>
             <Button x:Name="btn_nAsegu"  Grid.Row="11" Grid.Column="1" Width="22" HorizontalAlignment="Left" Background="#00000000" BorderBrush="#00000000" Margin="250,0,0,0">
                 <Image Source="{dx:DXImage Image=Add_32x32.png}" />
-            </Button>
+            </Button>-->
 
             
             <!-- AREA DE IMAGENES -->

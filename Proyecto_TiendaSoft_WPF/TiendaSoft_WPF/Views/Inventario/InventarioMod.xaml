@@ -48,14 +48,16 @@
             <Label Content="Descripcion: "  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Cantidad: "     Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Familia: "      Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            <Label Content="Ubicacion: "    Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            <Label Content="Anaquel: "      Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            <!--
             <Label Content="Marca: "        Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Tipo: "         Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Modelo: "       Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="a"              Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left"  FontSize="13" FontWeight="Normal" VerticalAlignment="Center" Margin="120,0,0,2"/>
             <Label Content="Placa: "        Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>            
-            <Label Content="Ubicacion: "    Grid.Row="10" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
-            <Label Content="Anaquel: "      Grid.Row="11" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
             <Label Content="Aseguradora: "  Grid.Row="12" Grid.Column="0" HorizontalAlignment="Right" FontSize="13" FontWeight="Medium" VerticalAlignment="Center"/>
+            -->
 
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"  Margin="20,4,4,4" Height="35" VerticalAlignment="Top">
                 <Button x:Name="btn_search" Background="Transparent">
@@ -70,17 +72,16 @@
             <TextBox    x:Name="tB_descripcion"   Grid.Row="3" Grid.Column="1" Margin="20,4,4,4" Width="340" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper"/>
             <TextBox    x:Name="tb_Cantidad"      Grid.Row="4" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" Text="1"/>
             <ComboBox   x:Name="cb_Familia"       Grid.Row="5" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
+            <ComboBox   x:Name="cb_Ubicacion"     Grid.Row="6" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
+            <TextBox    x:Name="tb_anaquel"       Grid.Row="7" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="30"/>
+            <!--
             <ComboBox   x:Name="cb_Marca"         Grid.Row="6" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
             <ComboBox   x:Name="cb_Tipo"          Grid.Row="7" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
-            
             <TextBox    x:Name="tb_modelo"        Grid.Row="8" Grid.Column="1" Margin="20,4,4,4" Width="100" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" Text=""/>
             <TextBox    x:Name="tb_modelo2"       Grid.Row="8" Grid.Column="1" Margin="140,4,4,4" Width="100" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" Text=""/>
-            
             <TextBox    x:Name="tb_placa"         Grid.Row="9" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="30" />
-            <ComboBox   x:Name="cb_Ubicacion"     Grid.Row="10" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
-            <TextBox    x:Name="tb_anaquel"       Grid.Row="11" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" CharacterCasing="Upper" MaxLength="30"/>
             <ComboBox   x:Name="cb_aseguradora"   Grid.Row="12" Grid.Column="1" Margin="20,4,4,4" Width="220" HorizontalContentAlignment="Left" HorizontalAlignment="Left" FontSize="12" FontWeight="Medium" VerticalAlignment="Center" Padding="5,1,5,1" BorderBrush="LightGray" DisplayMemberPath = "Descripcion" SelectedValuePath = "id"/>
-
+            -->
             <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="8" Margin="5" BorderBrush="Gray" BorderThickness="1">
                 <Border.Background>
                     <ImageBrush ImageSource="/TiendaSoft_Inventario_WPF;component/Imagenes/img_icon.png" Stretch="Uniform" />

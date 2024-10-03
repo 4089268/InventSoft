@@ -14,7 +14,7 @@ Class Invetario_Nuevo
     Private Sub rootLayout_loaded() Handles rootLayout.Loaded
         cargarCatalagos()
         limpiarCampos()
-        tb_modelo.Text = DateTime.Now.Year
+        'tb_modelo.Text = DateTime.Now.Year
     End Sub
 
     Private Sub cargarCatalagos()
@@ -24,7 +24,7 @@ Class Invetario_Nuevo
 
         Dim dataMarca As New DataSet
         Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "MARCA"}).Fill(dataMarca)
-        cb_Marca.ItemsSource = dataMarca.Tables(0).DefaultView
+        'cb_Marca.ItemsSource = dataMarca.Tables(0).DefaultView
 
         Dim dataUbicacion As New DataSet
         Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "UBICACIONES"}).Fill(dataUbicacion)
@@ -32,7 +32,7 @@ Class Invetario_Nuevo
 
         Dim dataAseguradora As New DataSet
         Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "ASEGURADORA"}).Fill(dataAseguradora)
-        cb_aseguradora.ItemsSource = dataAseguradora.Tables(0).DefaultView
+        'cb_aseguradora.ItemsSource = dataAseguradora.Tables(0).DefaultView
 
     End Sub
     Private Sub cargarCatalagos(tipo As String)
@@ -43,11 +43,11 @@ Class Invetario_Nuevo
                 cb_Familia.ItemsSource = dataFamilia.Tables(0).DefaultView
                 cb_Familia.SelectedIndex = 0
 
-            Case "Marca"
-                Dim dataMarca As New DataSet
-                Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "MARCA"}).Fill(dataMarca)
-                cb_Marca.ItemsSource = dataMarca.Tables(0).DefaultView
-                cb_Marca.SelectedIndex = 0
+            'Case "Marca"
+            '    Dim dataMarca As New DataSet
+            '    Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "MARCA"}).Fill(dataMarca)
+            '    cb_Marca.ItemsSource = dataMarca.Tables(0).DefaultView
+            '    cb_Marca.SelectedIndex = 0
 
             Case "Ubicacion"
                 Dim dataUbicacion As New DataSet
@@ -55,25 +55,25 @@ Class Invetario_Nuevo
                 cb_Ubicacion.ItemsSource = dataUbicacion.Tables(0).DefaultView
                 cb_Ubicacion.SelectedIndex = 0
 
-            Case "Aseguradora"
-                Dim dataAseguradora As New DataSet
-                Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "ASEGURADORA"}).Fill(dataAseguradora)
-                cb_aseguradora.ItemsSource = dataAseguradora.Tables(0).DefaultView
-                cb_aseguradora.SelectedIndex = 0
+                'Case "Aseguradora"
+                '    Dim dataAseguradora As New DataSet
+                '    Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xCat"}, {"CARGAR", "ASEGURADORA"}).Fill(dataAseguradora)
+                '    cb_aseguradora.ItemsSource = dataAseguradora.Tables(0).DefaultView
+                '    cb_aseguradora.SelectedIndex = 0
 
         End Select
 
     End Sub
-    Private Sub cargarCatalago_Tipo() Handles cb_Marca.SelectionChanged
-        Try
-            Dim dataTipo As New DataSet
-            Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xid_marca"}, {"CARGARTIPOXMARCA", cb_Marca.SelectedValue}).Fill(dataTipo)
+    'Private Sub cargarCatalago_Tipo() Handles cb_Marca.SelectionChanged
+    '    Try
+    '        Dim dataTipo As New DataSet
+    '        Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_Catalagos]", {"xAlias", "xid_marca"}, {"CARGARTIPOXMARCA", cb_Marca.SelectedValue}).Fill(dataTipo)
 
-            cb_Tipo.ItemsSource = dataTipo.Tables(0).DefaultView
-        Catch ex As Exception
-        End Try
+    '        cb_Tipo.ItemsSource = dataTipo.Tables(0).DefaultView
+    '    Catch ex As Exception
+    '    End Try
 
-    End Sub
+    'End Sub
     Private Sub InicializarWorker()
         busyIndicator1.IsBusy = True
         Me.backWorker = New BackgroundWorker
@@ -86,42 +86,42 @@ Class Invetario_Nuevo
 
     '********* BOTON AGREGAR *********
     Private Sub AgregarNuevaPieza_click() Handles btn_agregar.Click
-        If (tb_Cantidad.Text <> "" And tB_descripcion.Text <> "" And tb_Cantidad.Text <> "" And cb_Familia.SelectedValue >= 0 And cb_Tipo.SelectedValue >= 0 And tb_modelo.Text <> "" And cb_aseguradora.SelectedValue >= 0 And cb_Ubicacion.SelectedValue >= 0 And cb_Marca.SelectedValue >= 0) Then
+        If (tb_Cantidad.Text <> "" And tB_descripcion.Text <> "" And tb_Cantidad.Text <> "" And cb_Familia.SelectedValue >= 0 And cb_Ubicacion.SelectedValue >= 0) Then
 
             '***** Valirdar que los modelos sean numeros de 4 digitos *****
-            Dim regex As New System.Text.RegularExpressions.Regex("^[0-9]{4}$")
-            If Not regex.IsMatch(tb_modelo.Text) Then
-                Dim x As New msg_information("SOLO SE PERMITEN MODELOS DE 4 DIGITOS NUMERICOS")
-                tb_modelo.Focus()
-                Return
-            End If
+            'Dim regex As New System.Text.RegularExpressions.Regex("^[0-9]{4}$")
+            'If Not regex.IsMatch(tb_modelo.Text) Then
+            '    Dim x As New msg_information("SOLO SE PERMITEN MODELOS DE 4 DIGITOS NUMERICOS")
+            '    tb_modelo.Focus()
+            '    Return
+            'End If
 
-            If tb_modelo2.Text <> "" And Not regex.IsMatch(tb_modelo2.Text) Then
-                Dim x As New msg_information("SOLO SE PERMITEN MODELOS DE 4 DIGITOS NUMERICOS")
-                tb_modelo2.Focus()
-                Return
-            End If
+            'If tb_modelo2.Text <> "" And Not regex.IsMatch(tb_modelo2.Text) Then
+            '    Dim x As New msg_information("SOLO SE PERMITEN MODELOS DE 4 DIGITOS NUMERICOS")
+            '    tb_modelo2.Focus()
+            '    Return
+            'End If
 
 
             '****** Generar cadena de modelos ******
             Dim xmodelos As String = ""
-            If tb_modelo2.Text <> "" Then
-                Dim xm1 As Integer = Int(tb_modelo.Text)
-                Dim xm2 As Integer = Int(tb_modelo2.Text)
+            'If tb_modelo2.Text <> "" Then
+            '    Dim xm1 As Integer = Int(tb_modelo.Text)
+            '    Dim xm2 As Integer = Int(tb_modelo2.Text)
 
-                If (xm1 < xm2) Then
-                    For cont As Integer = xm1 To xm2
-                        xmodelos = xmodelos & cont
-                        If (cont <> xm2) Then
-                            xmodelos = xmodelos & ","
-                        End If
-                    Next
-                Else
-                    xmodelos = xm1 & ""
-                End If
-            Else
-                xmodelos = tb_modelo.Text
-            End If
+            '    If (xm1 < xm2) Then
+            '        For cont As Integer = xm1 To xm2
+            '            xmodelos = xmodelos & cont
+            '            If (cont <> xm2) Then
+            '                xmodelos = xmodelos & ","
+            '            End If
+            '        Next
+            '    Else
+            '        xmodelos = xm1 & ""
+            '    End If
+            'Else
+            '    xmodelos = tb_modelo.Text
+            'End If
 
             '****** Generando lista de parametros ******
             ListaParametros = New List(Of SqlParameter)
@@ -130,12 +130,12 @@ Class Invetario_Nuevo
             ListaParametros.Add(New SqlParameter("@Descripcion", tB_descripcion.Text))
             ListaParametros.Add(New SqlParameter("@existen", tb_Cantidad.Text))
             ListaParametros.Add(New SqlParameter("@id_familia", cb_Familia.SelectedValue))
-            ListaParametros.Add(New SqlParameter("@id_marca", cb_Marca.SelectedValue))
-            ListaParametros.Add(New SqlParameter("@id_tipo", cb_Tipo.SelectedValue))
-            ListaParametros.Add(New SqlParameter("@id_aseguradora", cb_aseguradora.SelectedValue))
+            'ListaParametros.Add(New SqlParameter("@id_marca", cb_Marca.SelectedValue))
+            'ListaParametros.Add(New SqlParameter("@id_tipo", cb_Tipo.SelectedValue))
+            'ListaParametros.Add(New SqlParameter("@id_aseguradora", cb_aseguradora.SelectedValue))
             ListaParametros.Add(New SqlParameter("@id_ubicacion", cb_Ubicacion.SelectedValue))
             ListaParametros.Add(New SqlParameter("@modelo", xmodelos))
-            ListaParametros.Add(New SqlParameter("@xplaca", tb_placa.Text))
+            'ListaParametros.Add(New SqlParameter("@xplaca", tb_placa.Text))
             ListaParametros.Add(New SqlParameter("@Numero_Pieza", tb_numPieza.Text))
             ListaParametros.Add(New SqlParameter("@anaquel", tb_anaquel.Text))
 
@@ -149,7 +149,7 @@ Class Invetario_Nuevo
 
 
     '********* Validar Entradas *********
-    Private Sub validar_numbers(sender As Object, e As TextCompositionEventArgs) Handles tb_Cantidad.PreviewTextInput, tb_modelo.PreviewTextInput, tb_modelo2.PreviewTextInput
+    Private Sub validar_numbers(sender As Object, e As TextCompositionEventArgs) Handles tb_Cantidad.PreviewTextInput ', tb_modelo.PreviewTextInput, tb_modelo2.PreviewTextInput
         Try
             Dim regex As New System.Text.RegularExpressions.Regex("[^0-9]+")
 
@@ -158,7 +158,7 @@ Class Invetario_Nuevo
         End Try
 
     End Sub
-    Public Sub nuevosCatalogos(sender As Object, e As RoutedEventArgs) Handles btn_nFamilias.Click, btn_nAsegu.Click, btn_nMarca.Click, btn_nUbic.Click
+    Public Sub nuevosCatalogos(sender As Object, e As RoutedEventArgs) Handles btn_nFamilias.Click, btn_nMarca.Click
         Dim xnuevo As Inventario_NuevoCatalago
         Dim n As String = sender.name
 
@@ -195,18 +195,18 @@ Class Invetario_Nuevo
         tb_Codigo.Text = ""
         tB_descripcion.Text = ""
         tb_Cantidad.Text = "1"
-        tb_modelo.Text = ""
-        tb_modelo2.Text = ""
         tb_numPieza.Text = ""
-        tb_placa.Text = ""
         tb_anaquel.Text = ""
+        'tb_modelo.Text = ""
+        'tb_modelo2.Text = ""
+        'tb_placa.Text = ""
 
-        cb_aseguradora.SelectedIndex = 0
         cb_Familia.SelectedIndex = 0
-        cb_Marca.SelectedIndex = 0
-        cb_Tipo.SelectedIndex = 0
         cb_Ubicacion.SelectedIndex = 0
         img1.Source = Nothing
+        'cb_aseguradora.SelectedIndex = 0
+        'cb_Marca.SelectedIndex = 0
+        'cb_Tipo.SelectedIndex = 0
 
         ximagenes.Clear()
         sp_imagenes.Children.Clear()
