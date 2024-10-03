@@ -1,0 +1,49 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="Page_inv_movimientos" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="700"
+      Title="Page_inv_reporteInv">
+
+    <Grid x:Name="rootLayout" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition  Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="MOVIMIENTOS DE INVENTARIO" Padding="10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="20" Foreground="#1c1c1c" FontWeight="Medium" Background="#d8d8d8"/>
+
+        <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,2" Width="90" Height="25" x:Name="btn_buscar">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{dx:DXImage Image=PreviewChart_32x32.png}"/>
+                <Label Content="BUSCAR" FontWeight="Medium" FontSize="10"/>
+            </StackPanel>
+        </Button>
+
+        <Label Content="Movimientos:"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="131,0,0,2" />
+        <ComboBox Name="cb_mov" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="212,0,0,2" DisplayMemberPath="Descripcion" SelectedValuePath="id" />
+
+        <CheckBox Name="chb_fecha" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="390,0,0,6"/>
+        <Label Content="Buscar con Fecha:" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="405,0,0,2" /> 
+        
+        <StackPanel Name="sp_fecha" Orientation="Horizontal" Grid.Row="1" Margin="510,0,0,2" HorizontalAlignment="Left" >
+            <Label Content="Entre:"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <DatePicker  Width="100"  x:Name="dp_fecha1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <Label Content="y"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />            
+            <DatePicker  Width="100"  x:Name="dp_fecha2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        </StackPanel>        
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <dxe:SearchControl x:Name="tb_search"     Grid.Row="2" Width="300"             Margin="5,0,0,0" />
+        </StackPanel>
+
+        <DataGrid x:Name="myDatagrid" Grid.Row="3" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" Background="White" Margin="10" BorderBrush="Navy" HorizontalGridLinesBrush="Navy"  VerticalGridLinesBrush="#00000000"/>
+
+    </Grid>
+</Page>

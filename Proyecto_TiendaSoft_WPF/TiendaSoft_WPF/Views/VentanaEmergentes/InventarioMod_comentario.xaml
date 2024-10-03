@@ -1,0 +1,17 @@
+﻿<Window x:Class="InventarioMod_comentario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="COMENTARIO" Height="300" Width="270" WindowStyle="None" Background="#FF404040">
+    <Grid Background="WhiteSmoke" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Content="ESCRIBA UN COMENTARIO"  FontSize="12" FontWeight="SemiBold" Margin="10,0,0,0"/>
+        <TextBox Grid.Row="1" Name="tb_coment" Margin="10" VerticalScrollBarVisibility="Auto"/>
+        <Button Grid.Row="2" Name="btn_salir"  Content="CONTINUAR" Width="120" Height="25"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="Saliendo_Confirmar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="SALIENDO" Height="140" Width="300" Background="#505050" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="2" Background="WhiteSmoke" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="SALIENDO DEL SISTEMA" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#505050" Foreground="WhiteSmoke"/>
+
+        <Label Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="¿DESEA CONTINUAR?" FontWeight="SemiBold" FontSize="11" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+        <Button  Name="btn_ok" Grid.Row="2" BorderBrush="LightGray" Margin="0,5,140,5" Width="100" Height="25">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{dx:DXImage Image=Forward_32x32.png}" />
+                <Label Content="CONTINUAR" FontWeight="SemiBold" Foreground="#303030" FontSize="10" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button Name="btn_cancel" Grid.Row="2" BorderBrush="LightGray" Margin="140,5,0,5" Width="100" Height="25">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{dx:DXImage Image=Cancel_32x32.png}" />
+                <Label Content="CANCELAR" FontWeight="SemiBold" Foreground="#303030" FontSize="10" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Window>

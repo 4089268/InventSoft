@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InventarioSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_aseguradora' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_aseguradora">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cat_Empresa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_comercial" Type="varchar" MaxLength="255" />
+          <Property Name="razon_social" Type="varchar" MaxLength="255" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="colonia" Type="varchar" MaxLength="50" />
+          <Property Name="ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_postal" Type="varchar" MaxLength="5" />
+          <Property Name="rfc" Type="varchar" MaxLength="18" />
+          <Property Name="telefono1" Type="varchar" MaxLength="30" />
+          <Property Name="telefono2" Type="varchar" MaxLength="30" />
+          <Property Name="pagina" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="firma1" Type="varchar" MaxLength="50" />
+          <Property Name="firma2" Type="varchar" MaxLength="50" />
+          <Property Name="logo" Type="image" />
+          <Property Name="inactivo" Type="bit" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_Familia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_Familia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_Imagenes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_Imagenes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_producto" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="imagen" Type="image" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_Marca' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_Marca">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="activo" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_Movimientos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_Movimientos">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_Tipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_Tipo">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="id_marca" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Cat_Ubicaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Cat_Ubicaciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Sys_Usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Sys_Usuarios">
+          <Key>
+            <PropertyRef Name="id_operador" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="usuario" />
+            <PropertyRef Name="id_departamento" />
+            <PropertyRef Name="activo" />
+            <PropertyRef Name="caducidad" />
+            <PropertyRef Name="id_jerarquia" />
+            <PropertyRef Name="id_sucursal" />
+            <PropertyRef Name="id_empleado" />
+            <PropertyRef Name="cambia_sucursal" />
+          </Key>
+          <Property Name="id_operador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="usuario" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="id_departamento" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="caducidad" Type="datetime" Nullable="false" />
+          <Property Name="id_jerarquia" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="id_sucursal" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="id_empleado" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="cambia_sucursal" Type="bit" Nullable="false" />
+          <Property Name="id_poblacion" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="psw_ant" Type="varchar" MaxLength="80" />
+          <Property Name="password" Type="varchar" MaxLength="250" />
+          <Property Name="LastPswChanged" Type="datetime" />
+          <Property Name="opciones" Type="varchar" MaxLength="20" />
+          <Property Name="isAdmin" Type="bit" />
+          <Property Name="status" Type="int" />
+          <Property Name="sesionActual" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.Global.Opr_MovInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Opr_MovInventario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_producto" Type="int" />
+          <Property Name="id_movimiento" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_operador" Type="int" />
+          <Property Name="invt_anterior" Type="int" />
+          <Property Name="invt_nuevo" Type="int" />
+          <Property Name="comentario" Type="varchar" MaxLength="200" />
+          <Property Name="codigoRecibo" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.Global.Opr_Productos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Opr_Productos">
+          <Key>
+            <PropertyRef Name="id_producto" />
+            <PropertyRef Name="id_familia" />
+          </Key>
+          <Property Name="id_producto" Type="numeric" Precision="15" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="40" />
+          <Property Name="descripcion" Type="varchar" MaxLength="260" />
+          <Property Name="existencia" Type="numeric" Precision="12" Scale="0" />
+          <Property Name="id_familia" Type="int" Nullable="false" />
+          <Property Name="id_marca" Type="int" />
+          <Property Name="id_tipo" Type="int" />
+          <Property Name="id_aseguradora" Type="int" />
+          <Property Name="id_ubicacion" Type="int" />
+          <Property Name="modelo" Type="varchar" MaxLength="200" />
+          <Property Name="foto1" Type="image" />
+          <Property Name="foto2" Type="image" />
+          <Property Name="foto3" Type="image" />
+          <Property Name="foto4" Type="image" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="placa" Type="varchar" MaxLength="10" />
+          <Property Name="num_pieza" Type="varchar" MaxLength="30" />
+          <Property Name="anaquel" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'InventarioPDV.dbo.Vw_Opr_Productos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vw_Opr_Productos">
+          <Key>
+            <PropertyRef Name="id_producto" />
+            <PropertyRef Name="id_familia" />
+            <PropertyRef Name="anaquel" />
+          </Key>
+          <Property Name="id_producto" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="40" />
+          <Property Name="descripcion" Type="varchar" MaxLength="260" />
+          <Property Name="existencia" Type="numeric" Precision="12" Scale="0" />
+          <Property Name="id_familia" Type="int" Nullable="false" />
+          <Property Name="familia" Type="varchar" MaxLength="50" />
+          <Property Name="id_marca" Type="int" />
+          <Property Name="marca" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo" Type="int" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" />
+          <Property Name="id_aseguradora" Type="int" />
+          <Property Name="aseguradora" Type="varchar" MaxLength="50" />
+          <Property Name="id_ubicacion" Type="int" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="30" />
+          <Property Name="modelo" Type="varchar" MaxLength="200" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="placa" Type="varchar" MaxLength="10" />
+          <Property Name="num_pieza" Type="varchar" MaxLength="30" />
+          <Property Name="anaquel" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="InventarioSoftModelStoreContainer">
+          <EntitySet Name="Cat_Empresa" EntityType="Self.Cat_Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_aseguradora" EntityType="Self.Cat_aseguradora" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_aseguradora].[id] AS [id], 
+[Cat_aseguradora].[Descripcion] AS [Descripcion], 
+[Cat_aseguradora].[activo] AS [activo]
+FROM [dbo].[Cat_aseguradora] AS [Cat_aseguradora]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cat_Familia" EntityType="Self.Cat_Familia" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_Familia].[id] AS [id], 
+[Cat_Familia].[Descripcion] AS [Descripcion], 
+[Cat_Familia].[activo] AS [activo]
+FROM [dbo].[Cat_Familia] AS [Cat_Familia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cat_Imagenes" EntityType="Self.Cat_Imagenes" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_Imagenes].[id] AS [id], 
+[Cat_Imagenes].[id_producto] AS [id_producto], 
+[Cat_Imagenes].[imagen] AS [imagen]
+FROM [dbo].[Cat_Imagenes] AS [Cat_Imagenes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cat_Marca" EntityType="Self.Cat_Marca" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_Marca].[id] AS [id], 
+[Cat_Marca].[Descripcion] AS [Descripcion], 
+[Cat_Marca].[activo] AS [activo]
+FROM [dbo].[Cat_Marca] AS [Cat_Marca]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cat_Movimientos" EntityType="Self.Cat_Movimientos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_Movimientos].[id] AS [id], 
+[Cat_Movimientos].[Descripcion] AS [Descripcion], 
+[Cat_Movimientos].[activo] AS [activo]
+FROM [dbo].[Cat_Movimientos] AS [Cat_Movimientos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cat_Tipo" EntityType="Self.Cat_Tipo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_Tipo].[id] AS [id], 
+[Cat_Tipo].[Descripcion] AS [Descripcion], 
+[Cat_Tipo].[activo] AS [activo], 
+[Cat_Tipo].[id_marca] AS [id_marca]
+FROM [dbo].[Cat_Tipo] AS [Cat_Tipo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cat_Ubicaciones" EntityType="Self.Cat_Ubicaciones" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cat_Ubicaciones].[id] AS [id], 
+[Cat_Ubicaciones].[descripcion] AS [descripcion]
+FROM [dbo].[Cat_Ubicaciones] AS [Cat_Ubicaciones]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sys_Usuarios" EntityType="Self.Sys_Usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sys_Usuarios].[id_operador] AS [id_operador], 
+[Sys_Usuarios].[nombre] AS [nombre], 
+[Sys_Usuarios].[usuario] AS [usuario], 
+[Sys_Usuarios].[id_departamento] AS [id_departamento], 
+[Sys_Usuarios].[activo] AS [activo], 
+[Sys_Usuarios].[caducidad] AS [caducidad], 
+[Sys_Usuarios].[id_jerarquia] AS [id_jerarquia], 
+[Sys_Usuarios].[id_sucursal] AS [id_sucursal], 
+[Sys_Usuarios].[id_empleado] AS [id_empleado], 
+[Sys_Usuarios].[cambia_sucursal] AS [cambia_sucursal], 
+[Sys_Usuarios].[id_poblacion] AS [id_poblacion], 
+[Sys_Usuarios].[psw_ant] AS [psw_ant], 
+[Sys_Usuarios].[password] AS [password], 
+[Sys_Usuarios].[LastPswChanged] AS [LastPswChanged], 
+[Sys_Usuarios].[opciones] AS [opciones], 
+[Sys_Usuarios].[isAdmin] AS [isAdmin], 
+[Sys_Usuarios].[status] AS [status], 
+[Sys_Usuarios].[sesionActual] AS [sesionActual]
+FROM [dbo].[Sys_Usuarios] AS [Sys_Usuarios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Opr_MovInventario" EntityType="Self.Opr_MovInventario" store:Type="Tables" store:Schema="Global">
+            <DefiningQuery>SELECT 
+[Opr_MovInventario].[id] AS [id], 
+[Opr_MovInventario].[id_producto] AS [id_producto], 
+[Opr_MovInventario].[id_movimiento] AS [id_movimiento], 
+[Opr_MovInventario].[fecha] AS [fecha], 
+[Opr_MovInventario].[id_operador] AS [id_operador], 
+[Opr_MovInventario].[invt_anterior] AS [invt_anterior], 
+[Opr_MovInventario].[invt_nuevo] AS [invt_nuevo], 
+[Opr_MovInventario].[comentario] AS [comentario], 
+[Opr_MovInventario].[codigoRecibo] AS [codigoRecibo]
+FROM [Global].[Opr_MovInventario] AS [Opr_MovInventario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Opr_Productos" EntityType="Self.Opr_Productos" store:Type="Tables" store:Schema="Global">
+            <DefiningQuery>SELECT 
+[Opr_Productos].[id_producto] AS [id_producto], 
+[Opr_Productos].[codigo] AS [codigo], 
+[Opr_Productos].[descripcion] AS [descripcion], 
+[Opr_Productos].[existencia] AS [existencia], 
+[Opr_Productos].[id_familia] AS [id_familia], 
+[Opr_Productos].[id_marca] AS [id_marca], 
+[Opr_Productos].[id_tipo] AS [id_tipo], 
+[Opr_Productos].[id_aseguradora] AS [id_aseguradora], 
+[Opr_Productos].[id_ubicacion] AS [id_ubicacion], 
+[Opr_Productos].[modelo] AS [modelo], 
+[Opr_Productos].[foto1] AS [foto1], 
+[Opr_Productos].[foto2] AS [foto2], 
+[Opr_Productos].[foto3] AS [foto3], 
+[Opr_Productos].[foto4] AS [foto4], 
+[Opr_Productos].[activo] AS [activo], 
+[Opr_Productos].[placa] AS [placa], 
+[Opr_Productos].[num_pieza] AS [num_pieza], 
+[Opr_Productos].[anaquel] AS [anaquel]
+FROM [Global].[Opr_Productos] AS [Opr_Productos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vw_Opr_Productos" EntityType="Self.Vw_Opr_Productos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Vw_Opr_Productos].[id_producto] AS [id_producto], 
+[Vw_Opr_Productos].[codigo] AS [codigo], 
+[Vw_Opr_Productos].[descripcion] AS [descripcion], 
+[Vw_Opr_Productos].[existencia] AS [existencia], 
+[Vw_Opr_Productos].[id_familia] AS [id_familia], 
+[Vw_Opr_Productos].[familia] AS [familia], 
+[Vw_Opr_Productos].[id_marca] AS [id_marca], 
+[Vw_Opr_Productos].[marca] AS [marca], 
+[Vw_Opr_Productos].[id_tipo] AS [id_tipo], 
+[Vw_Opr_Productos].[tipo] AS [tipo], 
+[Vw_Opr_Productos].[id_aseguradora] AS [id_aseguradora], 
+[Vw_Opr_Productos].[aseguradora] AS [aseguradora], 
+[Vw_Opr_Productos].[id_ubicacion] AS [id_ubicacion], 
+[Vw_Opr_Productos].[ubicacion] AS [ubicacion], 
+[Vw_Opr_Productos].[modelo] AS [modelo], 
+[Vw_Opr_Productos].[activo] AS [activo], 
+[Vw_Opr_Productos].[placa] AS [placa], 
+[Vw_Opr_Productos].[num_pieza] AS [num_pieza], 
+[Vw_Opr_Productos].[anaquel] AS [anaquel]
+FROM [dbo].[Vw_Opr_Productos] AS [Vw_Opr_Productos]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventarioSoftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cat_Empresa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_comercial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="razon_social" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_postal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="rfc" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="telefono1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefono2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="pagina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="firma1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="firma2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="inactivo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Cat_aseguradora">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Cat_Familia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Cat_Imagenes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_producto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Cat_Marca">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="activo" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cat_Movimientos">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Cat_Tipo">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="id_marca" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cat_Ubicaciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Usuarios">
+          <Key>
+            <PropertyRef Name="id_operador" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="usuario" />
+            <PropertyRef Name="id_departamento" />
+            <PropertyRef Name="activo" />
+            <PropertyRef Name="caducidad" />
+            <PropertyRef Name="id_jerarquia" />
+            <PropertyRef Name="id_sucursal" />
+            <PropertyRef Name="id_empleado" />
+            <PropertyRef Name="cambia_sucursal" />
+          </Key>
+          <Property Name="id_operador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_departamento" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="caducidad" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_jerarquia" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="id_sucursal" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="id_empleado" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="cambia_sucursal" Type="Boolean" Nullable="false" />
+          <Property Name="id_poblacion" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="psw_ant" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LastPswChanged" Type="DateTime" Precision="3" />
+          <Property Name="opciones" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="isAdmin" Type="Boolean" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="sesionActual" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Opr_MovInventario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_producto" Type="Int32" />
+          <Property Name="id_movimiento" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="id_operador" Type="Int32" />
+          <Property Name="invt_anterior" Type="Int32" />
+          <Property Name="invt_nuevo" Type="Int32" />
+          <Property Name="comentario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="codigoRecibo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Opr_Productos">
+          <Key>
+            <PropertyRef Name="id_producto" />
+            <PropertyRef Name="id_familia" />
+          </Key>
+          <Property Name="id_producto" Type="Decimal" Precision="15" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+          <Property Name="existencia" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="id_familia" Type="Int32" Nullable="false" />
+          <Property Name="id_marca" Type="Int32" />
+          <Property Name="id_tipo" Type="Int32" />
+          <Property Name="id_aseguradora" Type="Int32" />
+          <Property Name="id_ubicacion" Type="Int32" />
+          <Property Name="modelo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="foto1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto4" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="num_pieza" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="anaquel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vw_Opr_Productos">
+          <Key>
+            <PropertyRef Name="id_producto" />
+            <PropertyRef Name="id_familia" />
+            <PropertyRef Name="anaquel" />
+          </Key>
+          <Property Name="id_producto" Type="Decimal" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+          <Property Name="existencia" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="id_familia" Type="Int32" Nullable="false" />
+          <Property Name="familia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_marca" Type="Int32" />
+          <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo" Type="Int32" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_aseguradora" Type="Int32" />
+          <Property Name="aseguradora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_ubicacion" Type="Int32" />
+          <Property Name="ubicacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="num_pieza" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="anaquel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="InventarioSoftDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cat_Empresa" EntityType="Self.Cat_Empresa" />
+          <EntitySet Name="Cat_aseguradora" EntityType="Self.Cat_aseguradora" />
+          <EntitySet Name="Cat_Familia" EntityType="Self.Cat_Familia" />
+          <EntitySet Name="Cat_Imagenes" EntityType="Self.Cat_Imagenes" />
+          <EntitySet Name="Cat_Marca" EntityType="Self.Cat_Marca" />
+          <EntitySet Name="Cat_Movimientos" EntityType="Self.Cat_Movimientos" />
+          <EntitySet Name="Cat_Tipo" EntityType="Self.Cat_Tipo" />
+          <EntitySet Name="Cat_Ubicaciones" EntityType="Self.Cat_Ubicaciones" />
+          <EntitySet Name="Sys_Usuarios" EntityType="Self.Sys_Usuarios" />
+          <EntitySet Name="Opr_MovInventario" EntityType="Self.Opr_MovInventario" />
+          <EntitySet Name="Opr_Productos" EntityType="Self.Opr_Productos" />
+          <EntitySet Name="Vw_Opr_Productos" EntityType="Self.Vw_Opr_Productos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventarioSoftModelStoreContainer" CdmEntityContainer="InventarioSoftDB">
+          <EntitySetMapping Name="Cat_Empresa">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Empresa">
+              <MappingFragment StoreEntitySet="Cat_Empresa">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre_comercial" ColumnName="nombre_comercial" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="pagina" ColumnName="pagina" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="firma1" ColumnName="firma1" />
+                <ScalarProperty Name="firma2" ColumnName="firma2" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="inactivo" ColumnName="inactivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_aseguradora">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_aseguradora">
+              <MappingFragment StoreEntitySet="Cat_aseguradora">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Familia">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Familia">
+              <MappingFragment StoreEntitySet="Cat_Familia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Imagenes">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Imagenes">
+              <MappingFragment StoreEntitySet="Cat_Imagenes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Marca">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Marca">
+              <MappingFragment StoreEntitySet="Cat_Marca">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Movimientos">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Movimientos">
+              <MappingFragment StoreEntitySet="Cat_Movimientos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Tipo">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Tipo">
+              <MappingFragment StoreEntitySet="Cat_Tipo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Ubicaciones">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Cat_Ubicaciones">
+              <MappingFragment StoreEntitySet="Cat_Ubicaciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Usuarios">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Sys_Usuarios">
+              <MappingFragment StoreEntitySet="Sys_Usuarios">
+                <ScalarProperty Name="id_operador" ColumnName="id_operador" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="caducidad" ColumnName="caducidad" />
+                <ScalarProperty Name="id_jerarquia" ColumnName="id_jerarquia" />
+                <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="cambia_sucursal" ColumnName="cambia_sucursal" />
+                <ScalarProperty Name="id_poblacion" ColumnName="id_poblacion" />
+                <ScalarProperty Name="psw_ant" ColumnName="psw_ant" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="LastPswChanged" ColumnName="LastPswChanged" />
+                <ScalarProperty Name="opciones" ColumnName="opciones" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="sesionActual" ColumnName="sesionActual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opr_MovInventario">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Opr_MovInventario">
+              <MappingFragment StoreEntitySet="Opr_MovInventario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_operador" ColumnName="id_operador" />
+                <ScalarProperty Name="invt_anterior" ColumnName="invt_anterior" />
+                <ScalarProperty Name="invt_nuevo" ColumnName="invt_nuevo" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="codigoRecibo" ColumnName="codigoRecibo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opr_Productos">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Opr_Productos">
+              <MappingFragment StoreEntitySet="Opr_Productos">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+                <ScalarProperty Name="id_familia" ColumnName="id_familia" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="id_aseguradora" ColumnName="id_aseguradora" />
+                <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="foto1" ColumnName="foto1" />
+                <ScalarProperty Name="foto2" ColumnName="foto2" />
+                <ScalarProperty Name="foto3" ColumnName="foto3" />
+                <ScalarProperty Name="foto4" ColumnName="foto4" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="num_pieza" ColumnName="num_pieza" />
+                <ScalarProperty Name="anaquel" ColumnName="anaquel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vw_Opr_Productos">
+            <EntityTypeMapping TypeName="InventarioSoftModel.Vw_Opr_Productos">
+              <MappingFragment StoreEntitySet="Vw_Opr_Productos">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+                <ScalarProperty Name="id_familia" ColumnName="id_familia" />
+                <ScalarProperty Name="familia" ColumnName="familia" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="id_aseguradora" ColumnName="id_aseguradora" />
+                <ScalarProperty Name="aseguradora" ColumnName="aseguradora" />
+                <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="num_pieza" ColumnName="num_pieza" />
+                <ScalarProperty Name="anaquel" ColumnName="anaquel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

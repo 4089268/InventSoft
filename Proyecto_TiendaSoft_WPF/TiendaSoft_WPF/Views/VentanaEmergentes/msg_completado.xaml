@@ -1,0 +1,21 @@
+﻿<Window x:Class="msg_completado"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="msg_information" Height="115" Width="340" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="#232323" ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True">
+    <Grid Background="WhiteSmoke" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Name="lb_msg" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="mensaje para informar al informador" FontWeight="SemiBold" FontSize="11" />
+
+        <Image Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Source="{dx:DXImage Image=Apply_32x32.png}" Margin="4"/>
+
+        <Button x:Name="btn_ok" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Center"  Width="80" Content="ACEPTAR" FontSize="11" Margin="2" FontWeight="SemiBold"/>
+
+    </Grid>
+</Window>
+
