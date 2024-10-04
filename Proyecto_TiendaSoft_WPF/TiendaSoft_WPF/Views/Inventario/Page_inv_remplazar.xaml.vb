@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data
+Imports System.Linq
 
 Class Page_inv_remplazar
     Property id_producto As Int64 = 0
@@ -35,12 +36,23 @@ Class Page_inv_remplazar
             If (e.Key = Key.Enter And tb_search.Text <> "") Then
                 Dim dataSet As New DataSet
                 Mi_conexion.Ejecutar_Procedimiento_dataset("[Global].[Opr_ProductosP]", {"cAlias", "id_producto"}, {"CARGARXID", tb_search.Text}).Fill(dataSet)
+
+                If dataSet.Tables.Count <= 0 Then
+                    Throw New KeyNotFoundException
+                End If
+
+                If dataSet.Tables(0).Rows.Count <= 0 Then
+                    Throw New KeyNotFoundException
+                End If
+
                 lb_descripcion.Content = dataSet.Tables(0).Rows(0).Item("descripcion")
                 tb_ACantidad.Text = dataSet.Tables(0).Rows(0).Item("existencia")
-            End If
 
+            End If
+        Catch nf As KeyNotFoundException
+            Dim x As New msg_error("No existe registros con este Id")
         Catch ex As Exception
-            Dim x As New msg_error("ALGO SALIO MAL :(")
+            Dim x As New msg_error("Error al conectarse con el servidor")
         End Try
     End Sub
 

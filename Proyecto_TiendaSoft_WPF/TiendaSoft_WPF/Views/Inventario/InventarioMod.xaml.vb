@@ -480,6 +480,12 @@ Class InventarioMod
         Select Case e.ProgressPercentage
             Case 0
                 Dim dt = CType(e.UserState, DataTable)
+
+                ' validate if exist record
+                If dt.Rows.Count <= 0 Then
+                    Return
+                End If
+
                 tb_Codigo.Text = dt.Rows(0).Item("codigo")
                 tB_descripcion.Text = dt.Rows(0).Item("descripcion")
                 tb_numPieza.Text = dt.Rows(0).Item("num_pieza")
