@@ -88,38 +88,21 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="35"/>
                             <RowDefinition Height="35"/>
-                            <RowDefinition Height="35"/>
                         </Grid.RowDefinitions>
 
                         
                         <Label Content="Codigo"         Grid.Row="0" Grid.Column="0" />
-                        <Label Content="Descrip."    Grid.Row="0" Grid.Column="2" />
-                        <Label Content="Modelo"         Grid.Row="1" Grid.Column="0" />
-                        <Label Content="Placa"          Grid.Row="1" Grid.Column="2" />
-                        <Label Content="N° Pieza"       Grid.Row="1" Grid.Column="4" />
-                        <Label Content="Anaquel"        Grid.Row="1" Grid.Column="6" />
+                        <Label Content="Descrip."       Grid.Row="0" Grid.Column="2" />
+                        <Label Content="Anaquel"        Grid.Row="0" Grid.Column="6" />
 
                         <TextBox  Name="avz_codigo"     Grid.Row="0" Grid.Column="1" Text="{Binding Codigo, Mode=TwoWay}"/>
-                        <TextBox  Name="avz_desc"       Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="5" Text="{Binding Descripcion, Mode=TwoWay}"/>
-                        <TextBox  Name="avz_modelo"     Grid.Row="1" Grid.Column="1" Text="{Binding Modelo, Mode=TwoWay}"/>
-                        <TextBox  Name="avz_plac"       Grid.Row="1" Grid.Column="3" Text="{Binding Placa, Mode=TwoWay}"/>
-                        <TextBox  Name="avz_numPieza"   Grid.Row="1" Grid.Column="5" Text="{Binding Numero_Pieza, Mode=TwoWay}"/>
-                        <TextBox  Name="avz_anquel"     Grid.Row="1" Grid.Column="7" Text="{Binding Anaquel, Mode=TwoWay}"/>
+                        <TextBox  Name="avz_desc"       Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Descripcion, Mode=TwoWay}"/>
+                        <TextBox  Name="avz_anquel"     Grid.Row="0" Grid.Column="7" Text="{Binding Anaquel, Mode=TwoWay}"/>
                         
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="9">
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="9">
                             <Label Content="Familia" />
                             <ComboBox  Name="avz_C_fam" DisplayMemberPath = "Descripcion" SelectedValuePath = "id" SelectedValue="{Binding Id_Familia, Mode=TwoWay}"/>
-                            
-                            <Label Content="Marca"  />
-                            <ComboBox  Name="avz_C_marc" DisplayMemberPath="Descripcion" SelectedValuePath="id" SelectedValue="{Binding Id_Marca, Mode=TwoWay}"/>
-                            
-                            <Label Content="Tipo"  />
-                            <ComboBox  Name="avz_C_tipo" DisplayMemberPath="Descripcion" SelectedValuePath="id" SelectedValue="{Binding Id_Tipo, Mode=TwoWay}"/>
-                            
-                            <Label Content="Aseguradora"  />
-                            <ComboBox  Name="avz_c_aseg" Text="*" DisplayMemberPath="Descripcion" SelectedValuePath="id" SelectedValue="{Binding Id_Aseguradora, Mode=TwoWay}"/>
-                            
                             <Label Content="Ubicacion" />
                             <ComboBox  Name="avz_c_ubic" DisplayMemberPath="descripcion" SelectedValuePath="id" SelectedValue="{Binding Id_Ubicacion, Mode=TwoWay}"/>
                         </StackPanel>
@@ -153,16 +136,12 @@
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Codigo"         Binding="{Binding codigo}"      Width="80" CellStyle="{StaticResource Cell_Center}"/>
-                    <DataGridTextColumn Header="Descripcion"    Binding="{Binding descripcion}" Width="340"/>
+                    <DataGridTextColumn Header="Descripcion"    Binding="{Binding descripcion}" Width="*"/>
                     <DataGridTextColumn Header="Existencia"     Binding="{Binding existencia}"  Width="70" CellStyle="{StaticResource Cell_Center}"/>
-                    <DataGridTextColumn Header="Marca"          Binding="{Binding marca}"       Width="120" />
-                    <DataGridTextColumn Header="Tipo"           Binding="{Binding tipo}"        Width="120" />
-                    <DataGridTextColumn Header="Modelo"         Binding="{Binding modelo}"      Width="120" />
                     <DataGridTextColumn Header="Ubicacion"      Binding="{Binding ubicacion}"   Width="120" CellStyle="{StaticResource Cell_Center}"/>
                     <DataGridTextColumn Header="Anaquel"        Binding="{Binding anaquel}"     Width="120" CellStyle="{StaticResource Cell_Center}"/>
                     <DataGridTextColumn Header="Num Pieza"      Binding="{Binding num_pieza}"   Width="140"/>
                     <DataGridTextColumn Header="Familia"        Binding="{Binding familia}"     Width="140"/>
-                    <DataGridTextColumn Header="Aseguradora"    Binding="{Binding aseguradora}" Width="140"/>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,0,0,15">

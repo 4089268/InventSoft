@@ -91,10 +91,7 @@ Class Page_Busqueda
         End Using
 
         avz_C_fam.ItemsSource = catalogoFamilias
-        avz_C_marc.ItemsSource = catalogoMarcas
-        avz_C_tipo.ItemsSource = catalogoTipos
         avz_c_ubic.ItemsSource = catalogoUbicaciones
-        avz_c_aseg.ItemsSource = catalogoAseguradoras
     End Sub
 
 
@@ -137,19 +134,7 @@ Class Page_Busqueda
             grd_venta.ItemsSource = Nothing
         End If
     End Sub
-    Private Sub ComboBoxMarcas_SelectionChanged() Handles avz_C_marc.SelectionChanged
-        'Try
-        '    Dim id As Integer = CType(avz_C_marc.SelectedValue, Integer)
-        '    If id > 0 Then
-        '        Dim tmpData As New DataTable
 
-        '    Else
-
-        '    End If
-
-        'Catch ex As Exception
-        'End Try
-    End Sub
     Private Sub Activar_BusquedaAvanzada() Handles btn_cambiarBusqueda.Click
         Limpiar_UI()
 
@@ -165,15 +150,7 @@ Class Page_Busqueda
 
         mostraraBusquedaAvz = Not mostraraBusquedaAvz
     End Sub
-    Private Sub ComboBoxMarcas_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles avz_C_marc.SelectionChanged
-        If avz_C_marc.SelectedValue = 0 Then
-            avz_C_tipo.ItemsSource = catalogoTipos
-            avz_C_tipo.SelectedIndex = 0
-        Else
-            avz_C_tipo.ItemsSource = catalogoTipos.Where(Function(item) item.id = 0 Or item.id_marca = avz_C_marc.SelectedValue)
-            avz_C_tipo.SelectedIndex = 0
-        End If
-    End Sub
+
     Private Sub BotonExportarExcel_Click(sender As Object, e As RoutedEventArgs) Handles btn_exportExcel.Click
         Dim datos As IEnumerable(Of Vw_Opr_Productos) = grd_venta.ItemsSource
         If IsNothing(datos) Then
