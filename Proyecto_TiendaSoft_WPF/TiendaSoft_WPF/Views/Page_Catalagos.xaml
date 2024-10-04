@@ -20,7 +20,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal"  HorizontalAlignment="Center">
 
-            <Button x:Name="btn_Aseguradoras" Width="140" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12" Margin="5"  Padding="5,0" >
+            <!--<Button x:Name="btn_Aseguradoras" Width="140" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12" Margin="5"  Padding="5,0" >
                 <StackPanel Orientation="Horizontal">
                     <Image Height="20" Source="{dx:DXImage Image=Project_32x32.png}"/>
                     <Label Content="ASEGURADORAS" FontWeight="Medium"/>
@@ -39,14 +39,13 @@
                     <Image Source="{dx:DXImage Image=Product_32x32.png}" Height="20"/>
                     <Label Content="TIPOS" FontWeight="Medium"/>
                 </StackPanel>
-            </Button>
+            </Button>-->
 
             <Button x:Name="btn_grupos" Width="140" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12" Margin="5"  Padding="5,0" >
                 <StackPanel Orientation="Horizontal">
                     <Image Source="{dx:DXImage Image=UserGroup_32x32.png}" Height="20"/>
-                    <Label Content="GRUPOS" FontWeight="Medium"/>
+                    <Label Content="FAMILIAS" FontWeight="Medium"/>
                 </StackPanel>
-
             </Button>
 
             <Button x:Name="btn_Ubicaciones" Width="140" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12" Margin="5"  Padding="5,0">
