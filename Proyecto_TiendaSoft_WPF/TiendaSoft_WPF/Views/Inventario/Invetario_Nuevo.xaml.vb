@@ -126,6 +126,7 @@ Class Invetario_Nuevo
             '****** Generando lista de parametros ******
             ListaParametros = New List(Of SqlParameter)
             ListaParametros.Add(New SqlParameter("@cAlias", "NUEVO"))
+            ListaParametros.Add(New SqlParameter("@id_operador", xOpererador))
             ListaParametros.Add(New SqlParameter("@Codigo", tb_Codigo.Text))
             ListaParametros.Add(New SqlParameter("@Descripcion", tB_descripcion.Text))
             ListaParametros.Add(New SqlParameter("@existen", tb_Cantidad.Text))

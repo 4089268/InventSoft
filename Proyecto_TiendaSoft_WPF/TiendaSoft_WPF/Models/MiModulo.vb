@@ -4,10 +4,10 @@ Module MiModulo
 
 #Region " Variables... "
     Public Const strName As String = "InventSOFT"
-    Public Const strVer As String = "1.1.18"
+    Public Const strVer As String = "1.1.19"
 
     Public Const strApp As String = "POINT"
-    Public Const strBasedeDatos As String = "InventarioPDV"
+    Public Const strBasedeDatos As String = "MaterialesPDV"
 
     Public xOpererador As Int32 = 0
     Public xNombreUsuario As String = ""
